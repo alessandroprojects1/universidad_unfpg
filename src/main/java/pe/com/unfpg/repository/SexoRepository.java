@@ -3,6 +3,7 @@ import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import pe.com.unfpg.entity.SexoEntity;
+
 public interface SexoRepository extends JpaRepository<SexoEntity, Long> {
 	//utilizamos el JpaRepository por defecto se configura:
 	//mostrar, buscar por codigo, registrar, actualizar y eliminar
