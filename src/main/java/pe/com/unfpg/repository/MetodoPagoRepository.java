@@ -10,6 +10,6 @@ public interface MetodoPagoRepository extends JpaRepository<MetodoPagoEntity, Lo
 	//agregamos un Query personalizado
 	//Consulta MySQL: select * from distrito where estdis=1
 	//creamos un query personalizado
-	@Query("select mtp from SexoEntity mtp where mtp.estado=true")
+	@Query("select mtp from MetodoPagoEntity mtp where mtp.estado=true")
 	List<MetodoPagoEntity> findAllCustom();
 }

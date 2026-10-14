@@ -35,8 +35,10 @@ public class MetodoPagoEntity implements Serializable {
 	@Column(name = "codmetp") //define la columna con la que se relaciona
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //es para el auto_increment
 	private Long codigo;
+	
 	@Column(name = "nommetp",length = 50, nullable = false)
 	private String nombre;
+	
 	@Column(name = "estmetp", nullable = false)
 	private Boolean estado;
 	
