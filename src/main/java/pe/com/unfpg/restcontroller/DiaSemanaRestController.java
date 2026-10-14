@@ -15,7 +15,7 @@ import pe.com.unfpg.service.DiaSemanaService;
 //servicio RESTful
 @RestController
 //definir la ruta
-@RequestMapping("/api/tipodocumento")
+@RequestMapping("/api/diasemana")
 public class DiaSemanaRestController {
 	//inyeccion de dependencias hacia el servicio
 	@Autowired
