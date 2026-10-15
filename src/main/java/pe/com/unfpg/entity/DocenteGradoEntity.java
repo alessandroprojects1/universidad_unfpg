@@ -38,16 +38,8 @@ public class DocenteGradoEntity implements Serializable {
     @Column(name = "nomesp", length = 100, nullable = false)
     private String nombreespecialidad;
 
-    @Column(name = "estdg", nullable = false)
-    private Boolean estado;
 
-    public Boolean getEstado() {
-        return estado;
-    }
-    public void setEstado(Boolean estado) {
-        this.estado = estado;
-    }
-
+    
     // Claves foráneas
     @ManyToOne
     @MapsId("coddoc")

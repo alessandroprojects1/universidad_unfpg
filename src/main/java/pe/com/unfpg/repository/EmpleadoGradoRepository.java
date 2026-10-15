@@ -10,7 +10,7 @@ import pe.com.unfpg.entity.EmpleadoGradoId;
 public interface EmpleadoGradoRepository
         extends JpaRepository<EmpleadoGradoEntity, EmpleadoGradoId> {
 
-    @Query("select eg from EmpleadoGradoEntity eg where eg.estado = true")
+    @Query("select eg from EmpleadoGradoEntity eg")
     List<EmpleadoGradoEntity> findAllCustom();
 
     @Query("select eg from EmpleadoGradoEntity eg where eg.empleado.codigo = :codemp")

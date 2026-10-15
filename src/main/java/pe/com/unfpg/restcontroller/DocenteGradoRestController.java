@@ -55,15 +55,5 @@ public class DocenteGradoRestController {
         return servicio.update(obj, new DocenteGradoId(coddoc, codgrai));
     }
 
-    @DeleteMapping("/{coddoc}/{codgrai}")
-    public DocenteGradoEntity delete(@PathVariable Long coddoc,
-                                      @PathVariable Long codgrai) {
-        return servicio.delete(new DocenteGradoId(coddoc, codgrai));
-    }
-
-    @PatchMapping("/{coddoc}/{codgrai}")
-    public DocenteGradoEntity enable(@PathVariable Long coddoc,
-                                      @PathVariable Long codgrai) {
-        return servicio.enable(new DocenteGradoId(coddoc, codgrai));
-    }
+ 
 }
