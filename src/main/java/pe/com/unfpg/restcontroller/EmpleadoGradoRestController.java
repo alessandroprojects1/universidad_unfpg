@@ -2,9 +2,7 @@ package pe.com.unfpg.restcontroller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -53,17 +51,5 @@ public class EmpleadoGradoRestController {
                                       @PathVariable Long codemp,
                                       @PathVariable Long codgrai) {
         return servicio.update(obj, new EmpleadoGradoId(codemp, codgrai));
-    }
-
-    @DeleteMapping("/{codemp}/{codgrai}")
-    public EmpleadoGradoEntity delete(@PathVariable Long codemp,
-                                       @PathVariable Long codgrai) {
-        return servicio.delete(new EmpleadoGradoId(codemp, codgrai));
-    }
-
-    @PatchMapping("/{codemp}/{codgrai}")
-    public EmpleadoGradoEntity enable(@PathVariable Long codemp,
-                                       @PathVariable Long codgrai) {
-        return servicio.enable(new EmpleadoGradoId(codemp, codgrai));
     }
 }

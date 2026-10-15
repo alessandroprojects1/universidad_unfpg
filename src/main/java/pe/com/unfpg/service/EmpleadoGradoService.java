@@ -11,6 +11,4 @@ public interface EmpleadoGradoService {
     EmpleadoGradoEntity findById(EmpleadoGradoId id);
     EmpleadoGradoEntity add(EmpleadoGradoEntity obj);
     EmpleadoGradoEntity update(EmpleadoGradoEntity obj, EmpleadoGradoId id);
-    EmpleadoGradoEntity delete(EmpleadoGradoId id);
-    EmpleadoGradoEntity enable(EmpleadoGradoId id);
 }

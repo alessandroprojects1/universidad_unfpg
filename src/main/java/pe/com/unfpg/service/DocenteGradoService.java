@@ -11,6 +11,5 @@ public interface DocenteGradoService {
     DocenteGradoEntity findById(DocenteGradoId id);
     DocenteGradoEntity add(DocenteGradoEntity obj);
     DocenteGradoEntity update(DocenteGradoEntity obj, DocenteGradoId id);
-    DocenteGradoEntity delete(DocenteGradoId id);
-    DocenteGradoEntity enable(DocenteGradoId id);
+    
 }

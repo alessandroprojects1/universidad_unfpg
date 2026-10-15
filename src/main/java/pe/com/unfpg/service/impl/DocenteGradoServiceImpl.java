@@ -13,7 +13,7 @@ public class DocenteGradoServiceImpl implements DocenteGradoService {
 
     private final DocenteGradoRepository repositorio;
 
-    DocenteGradoServiceImpl(DocenteGradoRepository repositorio) {
+    public DocenteGradoServiceImpl(DocenteGradoRepository repositorio) {
         this.repositorio = repositorio;
     }
 
@@ -21,18 +21,20 @@ public class DocenteGradoServiceImpl implements DocenteGradoService {
     public List<DocenteGradoEntity> findAll() {
         return repositorio.findAll();
     }
+    
     @Override
     public List<DocenteGradoEntity> findAllCustom() {
-        return repositorio.findAll();
+        return repositorio.findAllCustom();
     }
+    
     @Override
     public List<DocenteGradoEntity> findByDocente(Long coddoc) {
-        return repositorio.findByDocente(coddoc);
+        return repositorio.findAllCustom(coddoc);
     }
 
     @Override
     public DocenteGradoEntity findById(DocenteGradoId id) {
-        return repositorio.findById(id).get();
+        return repositorio.findById(id).orElse(null);
     }
 
     @Override
@@ -42,21 +44,11 @@ public class DocenteGradoServiceImpl implements DocenteGradoService {
 
     @Override
     public DocenteGradoEntity update(DocenteGradoEntity obj, DocenteGradoId id) {
-        DocenteGradoEntity objdg = repositorio.findById(id).get();
-        BeanUtils.copyProperties(obj, objdg);
-        return repositorio.save(objdg);
-    }
-
-    @Override
-    public DocenteGradoEntity delete(DocenteGradoId id) {
-        DocenteGradoEntity objdg = repositorio.findById(id).get();
-        objdg.setEstado(false);
-        return repositorio.save(objdg);
-    }
-    @Override
-    public DocenteGradoEntity enable(DocenteGradoId id) {
-        DocenteGradoEntity objdg = repositorio.findById(id).get();
-        objdg.setEstado(true);
-        return repositorio.save(objdg);
+        DocenteGradoEntity objdg = repositorio.findById(id).orElse(null);
+        if (objdg != null) {
+            BeanUtils.copyProperties(obj, objdg);
+            return repositorio.save(objdg);
+        }
+        return null;
     }
 }

@@ -13,7 +13,7 @@ public class EmpleadoGradoServiceImpl implements EmpleadoGradoService {
 
     private final EmpleadoGradoRepository repositorio;
 
-    EmpleadoGradoServiceImpl(EmpleadoGradoRepository repositorio) {
+    public EmpleadoGradoServiceImpl(EmpleadoGradoRepository repositorio) {
         this.repositorio = repositorio;
     }
 
@@ -34,33 +34,21 @@ public class EmpleadoGradoServiceImpl implements EmpleadoGradoService {
 
     @Override
     public EmpleadoGradoEntity findById(EmpleadoGradoId id) {
-        return repositorio.findById(id).get();
+        return repositorio.findById(id).orElse(null);
     }
 
     @Override
     public EmpleadoGradoEntity add(EmpleadoGradoEntity obj) {
-        obj.setEstado(true);
         return repositorio.save(obj);
     }
 
     @Override
     public EmpleadoGradoEntity update(EmpleadoGradoEntity obj, EmpleadoGradoId id) {
-        EmpleadoGradoEntity objeg = repositorio.findById(id).get();
-        BeanUtils.copyProperties(obj, objeg);
-        return repositorio.save(objeg);
-    }
-
-    @Override
-    public EmpleadoGradoEntity delete(EmpleadoGradoId id) {
-        EmpleadoGradoEntity objeg = repositorio.findById(id).get();
-        objeg.setEstado(false);
-        return repositorio.save(objeg);
-    }
-
-    @Override
-    public EmpleadoGradoEntity enable(EmpleadoGradoId id) {
-        EmpleadoGradoEntity objeg = repositorio.findById(id).get();
-        objeg.setEstado(true);
-        return repositorio.save(objeg);
+        EmpleadoGradoEntity objeg = repositorio.findById(id).orElse(null);
+        if (objeg != null) {
+            BeanUtils.copyProperties(obj, objeg);
+            return repositorio.save(objeg);
+        }
+        return null;
     }
 }
