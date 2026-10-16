@@ -3,10 +3,10 @@ package pe.com.unfpg.restcontroller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -47,8 +47,9 @@ public class UsuarioRolRestController {
 		return servicio.add(obj);
 	}
 
-	@DeleteMapping("/{codusu}/{codrol}")
-	public void delete(@PathVariable Long codusu, @PathVariable Long codrol) {
-		servicio.delete(new UsuarioRolId(codusu, codrol));
+	@PutMapping("/{codusu}/{codrol}")
+	public UsuarioRolEntity update(@PathVariable Long codusu, @PathVariable Long codrol,
+			@RequestBody UsuarioRolEntity obj) {
+		return servicio.update(new UsuarioRolId(codusu, codrol), obj);
 	}
 }
