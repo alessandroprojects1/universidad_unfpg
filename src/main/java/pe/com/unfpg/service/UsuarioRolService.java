@@ -11,5 +11,5 @@ public interface UsuarioRolService {
 	List<UsuarioRolEntity> findByUsuario(Long codusu);
 	UsuarioRolEntity findById(UsuarioRolId id);
 	UsuarioRolEntity add(UsuarioRolEntity obj);
-	void delete(UsuarioRolId id);
+	UsuarioRolEntity update(UsuarioRolId id, UsuarioRolEntity obj);
 }
