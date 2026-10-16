@@ -1,0 +1,44 @@
+package pe.com.unfpg.restcontroller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import pe.com.unfpg.entity.UsuarioRolEntity;
+import pe.com.unfpg.entity.UsuarioRolId;
+import pe.com.unfpg.service.UsuarioRolService;
+
+@RestController
+@RequestMapping("/api/usuariorol")
+public class UsuarioRolRestController {
+
+	@Autowired
+	private UsuarioRolService servicio;
+
+	@GetMapping
+	public List<UsuarioRolEntity> findAll() {
+		return servicio.findAll();
+	}
+
+	@GetMapping("/{codusu}/{codrol}")
+	public UsuarioRolEntity findById(@PathVariable Long codusu, @PathVariable Long codrol) {
+		return servicio.findById(new UsuarioRolId(codusu, codrol));
+	}
+
+	@PostMapping
+	public UsuarioRolEntity add(@RequestBody UsuarioRolEntity obj) {
+		return servicio.add(obj);
+	}
+
+	@DeleteMapping("/{codusu}/{codrol}")
+	public void delete(@PathVariable Long codusu, @PathVariable Long codrol) {
+		servicio.delete(new UsuarioRolId(codusu, codrol));
+	}
+}
