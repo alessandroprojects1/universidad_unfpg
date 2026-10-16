@@ -24,6 +24,16 @@ public class UsuarioRolServiceImpl implements UsuarioRolService {
 	}
 
 	@Override
+	public List<UsuarioRolEntity> findAllCustom() {
+		return repositorio.findAllCustom();
+	}
+
+	@Override
+	public List<UsuarioRolEntity> findByUsuario(Long codusu) {
+		return repositorio.findByUsuario(codusu);
+	}
+
+	@Override
 	public UsuarioRolEntity findById(UsuarioRolId id) {
 		return repositorio.findById(id).get();
 	}
@@ -33,7 +43,6 @@ public class UsuarioRolServiceImpl implements UsuarioRolService {
 		if (obj.getUsuario() == null || obj.getRol() == null) {
 			throw new IllegalArgumentException("Debe indicar el usuario y el rol");
 		}
-		// se arma la clave compuesta a partir de las dos FK
 		UsuarioRolId id = new UsuarioRolId(obj.getUsuario().getCodigo(), obj.getRol().getCodigo());
 		if (repositorio.existsById(id)) {
 			throw new IllegalArgumentException("El usuario ya tiene asignado ese rol");

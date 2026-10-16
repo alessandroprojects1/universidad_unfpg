@@ -27,6 +27,16 @@ public class UsuarioRolRestController {
 		return servicio.findAll();
 	}
 
+	@GetMapping("/custom")
+	public List<UsuarioRolEntity> findAllCustom() {
+		return servicio.findAllCustom();
+	}
+
+	@GetMapping("/usuario/{codusu}")
+	public List<UsuarioRolEntity> findByUsuario(@PathVariable Long codusu) {
+		return servicio.findByUsuario(codusu);
+	}
+
 	@GetMapping("/{codusu}/{codrol}")
 	public UsuarioRolEntity findById(@PathVariable Long codusu, @PathVariable Long codrol) {
 		return servicio.findById(new UsuarioRolId(codusu, codrol));
