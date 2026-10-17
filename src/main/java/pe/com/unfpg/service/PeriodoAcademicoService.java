@@ -1,6 +1,5 @@
 package pe.com.unfpg.service;
 import java.util.List;
-import pe.com.unfpg.entity.FacultadEntity;
 import pe.com.unfpg.entity.PeriodoAcademicoEntity;
 public interface PeriodoAcademicoService {
 	//declaramos las operaciones con las cuales vamosa trabajar
