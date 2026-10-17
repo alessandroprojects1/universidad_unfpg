@@ -11,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import pe.com.unfpg.entity.RollmsEntity;
-import pe.com.unfpg.entity.TipoMatriculaEntity;
 import pe.com.unfpg.service.RollmsService;
-import pe.com.unfpg.service.TipoMatriculaService;
 //servicio RESTful
 @RestController
 //definir la ruta
